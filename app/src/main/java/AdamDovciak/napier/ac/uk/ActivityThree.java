@@ -48,7 +48,8 @@ public class ActivityThree extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void resetGame() {
-
+    private void resetGame() {
+        ActivityTwo activityTwo = new ActivityTwo();
+        activityTwo.resetGame();
     }
 }
