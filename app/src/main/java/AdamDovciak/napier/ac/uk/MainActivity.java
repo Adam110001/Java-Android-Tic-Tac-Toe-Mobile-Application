@@ -13,11 +13,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
+        Button startGameButton = (Button) findViewById(R.id.startGameButton);
+        startGameButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 openMainGame();
+            }
+        });
+
+        final Button openStatistics = (Button) findViewById(R.id.statisticsButton);
+        openStatistics.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openStatstics();
             }
         });
     }
@@ -25,5 +33,10 @@ public class MainActivity extends AppCompatActivity {
     public void openMainGame(){
         Intent gameView = new Intent(this, ActivityTwo.class);
         startActivity(gameView);
+    }
+
+    private void openStatstics(){
+        Intent statisticsView = new Intent(this, AcitivityFourStatistics.class);
+        startActivity(statisticsView);
     }
 }
