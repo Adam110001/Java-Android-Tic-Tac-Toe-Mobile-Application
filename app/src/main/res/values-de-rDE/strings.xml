@@ -8,4 +8,5 @@
     <string name="opensStartGame">Start</string>
     <string name="menu">Menü</string>
     <string name="saveScoresQuestion">"Möchten Sie Ergebnisse speichern? "</string>
+    <string name="save">Save</string>
 </resources>

@@ -14,4 +14,9 @@
     <string name="menu">Menu</string>
 
     <string name="saveScoresQuestion">Would you like to save scores?</string>
+
+    <string name="save">Save</string>
+
+    <string name="addNextDialogMessage">Thanks for playing!</string>
+
 </resources>

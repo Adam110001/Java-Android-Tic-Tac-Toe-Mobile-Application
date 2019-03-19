@@ -16,8 +16,8 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
 
     private int roundCount;
 
-    private int player1Points;
-    private int player2Points;
+    public int player1Points;
+    public int player2Points;
 
     private TextView textViewPlayer1;
     private TextView textViewPlayer2;

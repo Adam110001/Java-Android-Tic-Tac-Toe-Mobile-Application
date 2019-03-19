@@ -28,9 +28,11 @@ public class DatabaseManipulator {
         this.insertStmt = DatabaseManipulator.db.compileStatement(INSERT);
     }
 
-    private long insert(String playerName, String score){
-        this.insertStmt.bindString(1, playerName);
-        this.insertStmt.bindString(2, score);
+    public long insert(String playerName1, String playerScore1, String playerName2, String playerScore2){
+        this.insertStmt.bindString(1, playerName1);
+        this.insertStmt.bindString(3, playerScore1);
+        this.insertStmt.bindString(2, playerName2);
+        this.insertStmt.bindString(4, playerScore2);
         return this.insertStmt.executeInsert();
     }
 
@@ -40,7 +42,7 @@ public class DatabaseManipulator {
 
     public List<String[]> selectAll() {
         List<String[]> list = new ArrayList<String[]>();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"id", "playerName", "score",}, null, null, null, null, "playerName asc");
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"id", "playerName1", "playerScore1", "PlayerName2", "PlayerScore2",}, null, null, null, null, "playerName asc");
         int x = 0;
         if (cursor.moveToFirst()) {
             do {
@@ -65,7 +67,7 @@ public class DatabaseManipulator {
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE "
                     + TABLE_NAME
-                    + " (id INTEGER PRIMARY KEY, playerName TEXT, score TEXT)");
+                    + " (id INTEGER PRIMARY KEY, playerName1 TEXT, playerScore1 TEXT, playerName2 Text, playerScore2)");
         }
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
