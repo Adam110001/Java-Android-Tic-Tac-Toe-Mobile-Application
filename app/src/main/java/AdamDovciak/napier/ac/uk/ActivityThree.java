@@ -49,7 +49,7 @@ public class ActivityThree extends AppCompatActivity {
     }
 
     private void resetGame() {
-        ActivityTwo activityTwo = new ActivityTwo();
-        activityTwo.resetGame();
+        Intent scoreQuestion = new Intent(this, ActivityFiveCheckScore.class);
+        startActivity(scoreQuestion);
     }
 }

@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button startGameButton = (Button) findViewById(R.id.startGameButton);
+        /*Button startGameButton = (Button) findViewById(R.id.startGameButton);
         startGameButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -27,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 openStatstics();
             }
-        });
+        });*/
     }
 
-    public void openMainGame(){
+    public void openMainGame(View view) {
         Intent gameView = new Intent(this, ActivityTwo.class);
         startActivity(gameView);
     }
 
-    private void openStatstics(){
+    public void openStatstics(View view) {
         Intent statisticsView = new Intent(this, AcitivityFourStatistics.class);
         startActivity(statisticsView);
     }

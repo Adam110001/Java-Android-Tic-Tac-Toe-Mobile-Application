@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AcitivityFourStatistics"></activity>
+        <activity android:name=".ActivityFiveCheckScore"></activity>
+        <activity android:name=".AcitivityFourStatistics" />
         <activity android:name=".ActivityThree" />
         <activity android:name=".ActivityTwo" />
         <activity android:name=".MainActivity">

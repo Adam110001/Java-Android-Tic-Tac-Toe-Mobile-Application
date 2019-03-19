@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class ActivityTwo extends AppCompatActivity implements View.OnClickListener {
 
-    private Button[][] tiles = new Button[3][3];
+    private Button[][] buttons = new Button[3][3];
 
     private boolean player1Turn = true;
 
@@ -27,12 +27,15 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
 
+        textViewPlayer1 = findViewById(R.id.text_view_points1);
+        textViewPlayer2 = findViewById(R.id.text_view_points2);
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                String buttonID = "button" + i + j;
+                String buttonID = "button_" + i + j;
                 int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-                tiles[i][j] = findViewById(resID);
-                tiles[i][j].setOnClickListener(this);
+                buttons[i][j] = findViewById(resID);
+                buttons[i][j].setOnClickListener(this);
             }
         }
 
@@ -81,7 +84,7 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                field[i][j] = tiles[i][j].getText().toString();
+                field[i][j] = buttons[i][j].getText().toString();
             }
         }
 
@@ -119,14 +122,14 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
     private void player1Wins() {
         player1Points++;
         Toast.makeText(this, "Player 1 wins!", Toast.LENGTH_SHORT).show();
-        //updatePointsText();
+        updatePointsText();
         resetBoard();
     }
 
     private void player2Wins() {
         player2Points++;
         Toast.makeText(this, "Player 2 wins!", Toast.LENGTH_SHORT).show();
-        //updatePointsText();
+        updatePointsText();
         resetBoard();
     }
 
@@ -135,15 +138,15 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         resetBoard();
     }
 
-    /*private void updatePointsText() {
-        textViewPlayer1.setText("Player 1 (X): " + player1Points);
-        textViewPlayer2.setText("Player 2 (O): " + player2Points);
-    }*/
+    private void updatePointsText() {
+        textViewPlayer1.setText("" + player1Points);
+        textViewPlayer2.setText("" + player2Points);
+    }
 
     private void resetBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                tiles[i][j].setText("");
+                buttons[i][j].setText("");
             }
         }
 
@@ -151,10 +154,10 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         player1Turn = true;
     }
 
-    public void resetGame() {
+    private void resetGame() {
         player1Points = 0;
         player2Points = 0;
-        //updatePointsText();
+        updatePointsText();
         resetBoard();
     }
 
