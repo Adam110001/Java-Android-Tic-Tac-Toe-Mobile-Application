@@ -19,6 +19,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="28dp"
             android:text="@string/menu"
+            android:onClick="openMenu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/text_view_points1"
             app:layout_constraintTop_toTopOf="parent" />

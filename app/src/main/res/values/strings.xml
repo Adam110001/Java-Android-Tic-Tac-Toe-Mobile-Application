@@ -17,6 +17,8 @@
 
     <string name="save">Save</string>
 
-    <string name="addNextDialogMessage">Thanks for playing!</string>
+    <string name="back">Back</string>
+
+    <string name="returnToMainMenu">Return To Main Menu</string>
 
 </resources>

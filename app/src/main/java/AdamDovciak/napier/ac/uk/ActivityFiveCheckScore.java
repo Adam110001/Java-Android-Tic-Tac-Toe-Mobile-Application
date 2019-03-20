@@ -16,6 +16,12 @@ public class ActivityFiveCheckScore extends AppCompatActivity {
     public void noButtonPressed(View view){
         Intent noPressed = new Intent(this, ActivityTwo.class);
         startActivity(noPressed);
+
+        ActivityTwo scoreReset = new ActivityTwo();
+
+        scoreReset.player1Points = 0;
+        scoreReset.player2Points = 0;
+
     }
 
     public void yesButtonPressed(View view){

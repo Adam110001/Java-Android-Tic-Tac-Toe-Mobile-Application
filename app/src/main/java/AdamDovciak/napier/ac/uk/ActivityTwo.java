@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class ActivityTwo extends AppCompatActivity implements View.OnClickListener {
 
     private Button[][] buttons = new Button[3][3];
@@ -16,8 +18,8 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
 
     private int roundCount;
 
-    public int player1Points;
-    public int player2Points;
+    public static int player1Points;
+    public static int player2Points;
 
     private TextView textViewPlayer1;
     private TextView textViewPlayer2;
@@ -39,16 +41,7 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
             }
         }
 
-        /**
-         * Makes Menu Button Work
-         */
-        Button buttonMenu = findViewById(R.id.button_menu);
-        buttonMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMenu();
-            }
-        });
+        System.out.println(player1Points);
     }
 
     @Override
@@ -76,44 +69,35 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         } else {
             player1Turn = !player1Turn;
         }
-
     }
 
     private boolean checkForWin() {
-        String[][] field = new String[3][3];
+        String[][] teritory = new String[3][3];
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                field[i][j] = buttons[i][j].getText().toString();
+                teritory[i][j] = buttons[i][j].getText().toString();
             }
         }
 
         for (int i = 0; i < 3; i++) {
-            if (field[i][0].equals(field[i][1])
-                    && field[i][0].equals(field[i][2])
-                    && !field[i][0].equals("")) {
+            if (teritory[i][0].equals(teritory[i][1]) && teritory[i][0].equals(teritory[i][2]) && !teritory[i][0].equals("")) {
                 return true;
             }
+        }
+
+        if (teritory[0][0].equals(teritory[1][1]) && teritory[0][0].equals(teritory[2][2]) && !teritory[0][0].equals("")) {
+            return true;
+        }
+
+        if (teritory[0][2].equals(teritory[1][1]) && teritory[0][2].equals(teritory[2][0]) && !teritory[0][2].equals("")) {
+            return true;
         }
 
         for (int i = 0; i < 3; i++) {
-            if (field[0][i].equals(field[1][i])
-                    && field[0][i].equals(field[2][i])
-                    && !field[0][i].equals("")) {
+            if (teritory[0][i].equals(teritory[1][i]) && teritory[0][i].equals(teritory[2][i]) && !teritory[0][i].equals("")) {
                 return true;
             }
-        }
-
-        if (field[0][0].equals(field[1][1])
-                && field[0][0].equals(field[2][2])
-                && !field[0][0].equals("")) {
-            return true;
-        }
-
-        if (field[0][2].equals(field[1][1])
-                && field[0][2].equals(field[2][0])
-                && !field[0][2].equals("")) {
-            return true;
         }
 
         return false;
@@ -154,13 +138,6 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         player1Turn = true;
     }
 
-    private void resetGame() {
-        player1Points = 0;
-        player2Points = 0;
-        updatePointsText();
-        resetBoard();
-    }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -181,7 +158,7 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         player1Turn = savedInstanceState.getBoolean("player1Turn");
     }
 
-    public void openMenu() {
+    public void openMenu(View view) {
         Intent intent = new Intent(this, ActivityThree.class);
         startActivity(intent);
     }

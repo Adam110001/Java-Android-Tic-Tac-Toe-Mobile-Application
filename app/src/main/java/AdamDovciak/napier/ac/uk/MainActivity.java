@@ -12,22 +12,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        /*Button startGameButton = (Button) findViewById(R.id.startGameButton);
-        startGameButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                openMainGame();
-            }
-        });
-
-        final Button openStatistics = (Button) findViewById(R.id.statisticsButton);
-        openStatistics.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                openStatstics();
-            }
-        });*/
     }
 
     public void openMainGame(View view) {

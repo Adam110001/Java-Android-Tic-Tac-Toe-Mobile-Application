@@ -19,7 +19,7 @@ public class DatabaseManipulator {
     private SQLiteStatement insertStmt;
 
     private static final String INSERT = "insert into " + TABLE_NAME
-            + " (playerName,score) values (?,?)";
+            + " (playerName1,playerName2,playerScore1, playerScore2) values (?,?,?,?)";
 
     public DatabaseManipulator(Context context) {
         DatabaseManipulator.context = context;
@@ -28,10 +28,10 @@ public class DatabaseManipulator {
         this.insertStmt = DatabaseManipulator.db.compileStatement(INSERT);
     }
 
-    public long insert(String playerName1, String playerScore1, String playerName2, String playerScore2){
+    public long insert(String playerName1, String PlayerName2, String playerScore1, String playerScore2){
         this.insertStmt.bindString(1, playerName1);
-        this.insertStmt.bindString(3, playerScore1);
-        this.insertStmt.bindString(2, playerName2);
+        this.insertStmt.bindString(3, PlayerName2);
+        this.insertStmt.bindString(2, playerScore1);
         this.insertStmt.bindString(4, playerScore2);
         return this.insertStmt.executeInsert();
     }
@@ -42,12 +42,13 @@ public class DatabaseManipulator {
 
     public List<String[]> selectAll() {
         List<String[]> list = new ArrayList<String[]>();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"id", "playerName1", "playerScore1", "PlayerName2", "PlayerScore2",}, null, null, null, null, "playerName asc");
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"id", "playerName1", "PlayerName2", "playerScore1", "PlayerScore2",}, null, null, null, null, "playerName1 asc");
         int x = 0;
         if (cursor.moveToFirst()) {
             do {
                 String[] b1 = new String[]{cursor.getString(0),
-                        cursor.getString(1), cursor.getString(2)};
+                        cursor.getString(1), cursor.getString(2),
+                        cursor.getString(3), cursor.getString(4)};
                 list.add(b1);
                 x++;
             } while (cursor.moveToNext());
@@ -67,7 +68,7 @@ public class DatabaseManipulator {
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE "
                     + TABLE_NAME
-                    + " (id INTEGER PRIMARY KEY, playerName1 TEXT, playerScore1 TEXT, playerName2 Text, playerScore2)");
+                    + " (id INTEGER PRIMARY KEY, playerName1 TEXT, PlayerName2 TEXT, playerScore1 TEXT, playerScore2 TEXT)");
         }
 
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

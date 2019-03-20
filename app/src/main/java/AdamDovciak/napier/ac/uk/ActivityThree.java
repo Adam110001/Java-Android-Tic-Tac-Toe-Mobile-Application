@@ -13,42 +13,23 @@ public class ActivityThree extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_three);
 
-        Button resetButton = findViewById(R.id.resetButton);
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetGame();
-            }
-        });
+        ActivityTwo activityTwo = new ActivityTwo();
+        int player1Points = activityTwo.player1Points;
 
-        Button backToMainMenu = (Button) findViewById(R.id.backToMainMenu_button);
-        backToMainMenu.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                openMainMenu();
-            }
-        });
-
-        Button backToGame = findViewById(R.id.backToGame_button);
-        backToGame.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                openGame();
-            }
-        });
+        System.out.println(player1Points);
     }
 
-    private void openGame() {
-        Intent intent = new Intent(this, ActivityTwo.class);
-        startActivity(intent);
+    public void openGame(View view) {
+        Intent gameOpener = new Intent(this, ActivityTwo.class);
+        startActivity(gameOpener);
     }
 
-    private void openMainMenu() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    public void openMainMenu(View view) {
+        Intent mainMenuOpener = new Intent(this, MainActivity.class);
+        startActivity(mainMenuOpener);
     }
 
-    private void resetGame() {
+    public void resetGame(View view) {
         Intent scoreQuestion = new Intent(this, ActivityFiveCheckScore.class);
         startActivity(scoreQuestion);
     }

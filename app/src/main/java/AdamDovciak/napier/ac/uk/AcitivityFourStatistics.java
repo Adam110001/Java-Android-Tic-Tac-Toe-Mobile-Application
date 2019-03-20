@@ -1,6 +1,7 @@
 package AdamDovciak.napier.ac.uk;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,6 @@ import java.util.List;
 public class AcitivityFourStatistics extends ListActivity {
 
     TextView selection;
-    public int idToModify;
     DatabaseManipulator dm;
     List<String[]> list = new ArrayList<String[]>();
     List<String[]> names2 = null;
@@ -48,5 +48,10 @@ public class AcitivityFourStatistics extends ListActivity {
 
     public void onListItemClick(ListView parent, View v, int position, long id) {
         selection.setText(stg1[position]);
+    }
+
+    public void returnToMain(View view){
+        Intent returnToMainMenu = new Intent(this, MainActivity.class);
+        startActivity(returnToMainMenu);
     }
 }
