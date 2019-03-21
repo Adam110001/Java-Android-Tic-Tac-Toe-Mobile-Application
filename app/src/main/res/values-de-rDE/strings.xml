@@ -18,6 +18,13 @@
     <string name="saveScoresQuestion">"Möchten Sie Ergebnisse speichern?"</string>
 
     <string name="save">Save</string>
-    <string name="back">Zuruck</string>
+    <string name="back">Zurück</string>
+    <string name="returnToMainMenu">Zurück Zum Hauptmenü</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="backToGame">Zurück zum Spiel</string>
+    <string name="backToMainMenu">Zurück zum Hauptmenü</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="playerScore">Spieler Punkzahl</string>
 
 </resources>

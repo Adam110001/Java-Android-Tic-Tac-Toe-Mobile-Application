@@ -2,21 +2,17 @@ package AdamDovciak.napier.ac.uk;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class AcitivityFourStatistics extends ListActivity {
 
     TextView selection;
-    DatabaseManipulator dm;
-    List<String[]> list = new ArrayList<String[]>();
+    DatabaseManipulator dbm;
     List<String[]> names2 = null;
     String[] stg1;
 
@@ -25,8 +21,8 @@ public class AcitivityFourStatistics extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avitivity_four_statistics);
 
-        dm = new DatabaseManipulator(this);
-        names2 = dm.selectAll();
+        dbm = new DatabaseManipulator(this);
+        names2 = dbm.selectAll();
         stg1 = new String[names2.size()];
         int x = 0;
         String stg;

@@ -21,4 +21,16 @@
 
     <string name="returnToMainMenu">Return To Main Menu</string>
 
+    <string name="reset">Reset</string>
+
+    <string name="backToGame">Back To Game</string>
+
+    <string name="backToMainMenu">Back To Main Menu</string>
+
+    <string name="yes">Yes</string>
+
+    <string name="no">No</string>
+
+    <string name="playerScore">Player Score</string>
+
 </resources>
